@@ -1,39 +1,12 @@
-// Desestructuracion
-// asignacion desestructurante
+import { heroes} from './data/heroes.js'
 
-const persona = {
-    nombre: 'Tony',
-    edad: 45,
-    clave: 'Ironman'
-};
+console.log(heroes);
 
-console.log(persona.nombre);
-console.log(persona.edad);
-console.log(persona.clave);
+const getHeroes = (id)=>heroes.find((heroe)=>heroe.id === id);
 
-// const {nombre:nombre2} = persona;
-// console.log(nombre2);
+console.log(getHeroes(2));
 
-const {nombre, edad, clave} = persona;
 
-console.log(nombre);
-console.log(edad);
-console.log(clave);
+const getHeroesByOwner = (owner)=>heroes.filter((heroe)=>heroe.owner === owner);
 
-const retornaPersona = ({clave,nombre,edad, rango = 'Capitan'})=>{
-    // console.log(nombre, edad, rango);
-
-    return{
-        nombreClave: clave,
-        anios: edad,
-        latlng:{
-            lat: 14.1212,
-            lng: -12.3215
-        }
-    }
-}
-
-const {nombreClave, anios, latlng:{lat,lng}} = retornaPersona(persona);
-
-console.log(nombreClave, anios);
-console.log(lat,lng);
+console.log(getHeroesByOwner('DC')); 
